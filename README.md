@@ -15,7 +15,7 @@ Note: this repository contains only the SQL used for analysis and a three page P
 ## Insights
 
 * **Promo driven volatility.** Sales expanded by about **450%** within the period, with sharp spikes that point to date based promotions rather than durable demand. This pattern increases forecasting and inventory risk and can weaken margins if left unmanaged.
-* **Geographic concentration.** **Depok contributes around 40%** of total sales, which creates dependency on a single city and exposure to local shocks, while other cities show room to grow.
+* **Geographic concentration.** About 40% of sales come from Depok alone, so the business relies too much on one city. This raises risk if conditions change there, while other cities still have clear room to grow.
 * **Loyalty risk.** **44%** of customers are marked **At Risk** by RFM, indicating a large group with low recent activity and a high probability of churn.
 
 ## Advices
