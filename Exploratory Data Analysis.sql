@@ -450,7 +450,7 @@ ORDER BY [Revenue] DESC;
 
 
 ---------------------------------------------------------------------------------------
--- 7) What is the repeat purchase rate — how loyal are our customers?
+-- 7) What is the repeat purchase rate Â— how loyal are our customers?
 -- A) Returning Customer Rate -- Explains % of customers in month who purchased before
 
 
@@ -539,83 +539,3 @@ SELECT
 FROM bucket
 GROUP BY [Year], [Month]
 ORDER BY [Year], [Month];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-----------------------------------------------------------------------------
--- Archived
--- Top 10 Customers by Total Spent
-WITH RankedCustomers AS (
-	SELECT C.id,
-	SUM(Total) AS TotalSpent,
-	RANK() OVER(ORDER BY SUM(Total) DESC) AS rnk
-	FROM [customer] C
-	JOIN [transaction] T ON C.id = T.customer_id
-	GROUP BY C.id
-)
-SELECT id,
-TotalSpent
-FROM RankedCustomers
-WHERE rnk <=10
-
--- Top 10 Customers by Total Quantity Sold
-WITH RankedCustomers AS (
-	SELECT C.id,
-	SUM(quantity) AS TotalQtySold,
-	RANK() OVER(ORDER BY SUM(quantity) DESC) AS rnk
-	FROM [customer] C
-	JOIN [transaction] T ON C.id = T.customer_id
-	GROUP BY C.id
-)
-SELECT id,
-TotalQtySold
-FROM RankedCustomers
-WHERE rnk <=10
-
--- Top 10 Customers by Total Quantity Sold
-WITH RankedCustomers AS (
-	SELECT C.id,
-	SUM(quantity) AS TotalQtySold,
-	RANK() OVER(ORDER BY SUM(quantity) DESC) AS rnk
-	FROM [customer] C
-	JOIN [transaction] T ON C.id = T.customer_id
-	GROUP BY C.id
-)
-SELECT id,
-TotalQtySold
-FROM RankedCustomers
-WHERE rnk <=10
-
--- Top 5 Locations by Total Spent
-WITH RankedLocation AS (
-	SELECT city,
-	SUM(Total) AS TotalSpent,
-	RANK() OVER(ORDER BY SUM(Total) DESC) AS rnk
-	FROM [customer] C
-	JOIN [transaction] T ON C.id = T.customer_id
-	GROUP BY city
-)
-SELECT city,
-TotalSpent
-FROM RankedLocation
-WHERE rnk <=10
